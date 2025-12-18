@@ -1,0 +1,62 @@
+jamiewells-dev - Personal Agency Portfolio Site
+================================================
+
+A static portfolio site showcasing product engineering work and startup projects.
+Built with Next.js 16, Tailwind CSS 4, and Framer Motion.
+
+DIRECTORY STRUCTURE
+-------------------
+
+/app
+  - layout.tsx      Root layout with Geist fonts, metadata (SEO, OpenGraph, Twitter)
+  - page.tsx        Main landing page with all sections (Hero, Proof Strip, Problem,
+                    What I Do, Specialization, Timeline, Products, Fit Criteria,
+                    About, CTA, Footer). Uses Framer Motion for scroll animations.
+  - globals.css     Design system variables (colors, fonts, scrollbar styling)
+
+/public
+  /proofbase        ProofBase product screenshots (portfolio builder app)
+    - proofbase-analytics.png
+    - proofbase-cv-preview.png
+    - proofbase-portfolios.png
+    - proofbase-referrals.png
+    - proofbase-tracker.png
+
+  /skillden         SkillDen product screenshots (gamified skill tree builder)
+    - skillden-ai.png
+    - skillden-quests.png
+    - skillden-skilltree.png
+    - skillden-stats.png
+    - skillden-tree-complete.png
+
+  /studentvault     StudentVault product mockups (collaborative learning platform)
+    - studentvault-analytics-mockup.png
+    - studentvault-progress tracking-mockup.png
+    - studentvault-search-mockup.png
+    - studentvault-studying-mockup.png
+
+DESIGN SYSTEM (globals.css)
+---------------------------
+- Background: #0a0a0a (dark)
+- Foreground: #ededed (light text)
+- Primary accent: #3b82f6 (blue)
+- Product accents:
+  - SkillDen: #f59e0b (amber)
+  - ProofBase: #8b5cf6 (purple)
+  - StudentVault: #22c55e (green)
+- Fonts: Geist Sans (--font-geist-sans), Geist Mono (--font-geist-mono)
+
+KEY PATTERNS
+------------
+- Animation variants defined at top of page.tsx (fadeInUp, staggerContainer)
+- All sections use motion.div with whileInView for scroll-triggered animations
+- Responsive breakpoints: sm (640px), md (768px), lg (1024px)
+- Image optimization via next/image with proper sizes attribute
+
+TECH STACK
+----------
+- Next.js 16
+- React 19
+- Tailwind CSS 4
+- Framer Motion
+- TypeScript
