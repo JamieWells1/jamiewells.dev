@@ -131,30 +131,29 @@ function ImageGallery({
     <>
       {/* Gallery Slider */}
       <div className="relative">
-        {/* Main Image Display */}
+        {/* Main Image Display - Horizontal sliding carousel */}
         <div
           className="relative aspect-[16/10] rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer group"
           onClick={() => openModal(currentIndex)}
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 flex items-center justify-center p-4"
-            >
-              <Image
-                src={images[currentIndex]}
-                alt={`${productName} screenshot ${currentIndex + 1}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 80vw"
-                priority={currentIndex === 0}
-              />
-            </motion.div>
-          </AnimatePresence>
+          {/* All images rendered, sliding horizontally */}
+          <div
+            className="flex h-full transition-transform duration-300 ease-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {images.map((image, index) => (
+              <div key={index} className="relative flex-shrink-0 w-full h-full">
+                <Image
+                  src={image}
+                  alt={`${productName} screenshot ${index + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                  priority
+                />
+              </div>
+            ))}
+          </div>
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center pointer-events-none">
             <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium bg-black/50 px-4 py-2 rounded-full">
@@ -261,25 +260,24 @@ function ImageGallery({
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative aspect-video rounded-xl overflow-hidden bg-neutral-900">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={modalIndex}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={images[modalIndex]}
-                      alt={`${productName} screenshot ${modalIndex + 1}`}
-                      fill
-                      className="object-contain"
-                      sizes="100vw"
-                      priority
-                    />
-                  </motion.div>
-                </AnimatePresence>
+                {/* All images rendered, sliding horizontally */}
+                <div
+                  className="flex h-full transition-transform duration-300 ease-out"
+                  style={{ transform: `translateX(-${modalIndex * 100}%)` }}
+                >
+                  {images.map((image, index) => (
+                    <div key={index} className="relative flex-shrink-0 w-full h-full">
+                      <Image
+                        src={image}
+                        alt={`${productName} screenshot ${index + 1}`}
+                        fill
+                        className="object-contain"
+                        sizes="100vw"
+                        priority
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Modal Navigation */}
