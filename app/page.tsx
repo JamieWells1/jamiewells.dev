@@ -20,10 +20,10 @@ const staggerContainer = {
 
 // Proof stats for the strip
 const proofStats = [
-  { value: "18", unit: "hours", label: "to ship SkillDen" },
+  { value: "18 ", unit: "hours", label: "to ship SkillDen" },
   { value: "1000+", unit: "", label: "users on ProofBase" },
   { value: "3", unit: "", label: "shipped products" },
-  { value: "Real", unit: "", label: "traction" },
+  { value: "Monetised", unit: "", label: "traction" },
 ];
 
 // Timeline steps
@@ -40,8 +40,7 @@ const timelineSteps = [
 const products = [
   {
     name: "SkillDen",
-    description:
-      "Gamified skill tree builder. Built in 18 hours.",
+    description: "Gamified skill tree builder. Built in 18 hours.",
     url: "https://skillden.app",
     images: [
       "/skillden/skillden-skilltree.png",
@@ -54,13 +53,14 @@ const products = [
   },
   {
     name: "ProofBase",
-    description: "Portfolio builder for degree apprentices. 1000+ users. Monetized.",
+    description:
+      "Portfolio builder for degree apprentices. 1000+ users. Monetized.",
     url: "https://proofbase.app",
     images: [
-      "/proofbase/proofbase-tracker.png",
-      "/proofbase/proofbase-analytics.png",
       "/proofbase/proofbase-cv-preview.png",
+      "/proofbase/proofbase-tracker.png",
       "/proofbase/proofbase-referrals.png",
+      "/proofbase/proofbase-analytics.png",
     ],
     accent: "#8b5cf6",
   },
@@ -90,7 +90,7 @@ const fitCriteria = [
 function ImageGallery({
   images,
   productName,
-  accent
+  accent,
 }: {
   images: string[];
   productName: string;
@@ -164,21 +164,47 @@ function ImageGallery({
           {images.length > 1 && (
             <>
               <button
-                onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevSlide();
+                }}
                 className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors z-10"
                 aria-label="Previous image"
               >
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextSlide();
+                }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors z-10"
                 aria-label="Next image"
               >
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -222,7 +248,9 @@ function ImageGallery({
               className={`w-2 h-2 rounded-full transition-all ${
                 index === currentIndex ? "w-6" : "bg-white/20 hover:bg-white/40"
               }`}
-              style={{ backgroundColor: index === currentIndex ? accent : undefined }}
+              style={{
+                backgroundColor: index === currentIndex ? accent : undefined,
+              }}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -245,8 +273,18 @@ function ImageGallery({
               className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
               aria-label="Close modal"
             >
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -266,7 +304,10 @@ function ImageGallery({
                   style={{ transform: `translateX(-${modalIndex * 100}%)` }}
                 >
                   {images.map((image, index) => (
-                    <div key={index} className="relative flex-shrink-0 w-full h-full">
+                    <div
+                      key={index}
+                      className="relative flex-shrink-0 w-full h-full"
+                    >
                       <Image
                         src={image}
                         alt={`${productName} screenshot ${index + 1}`}
@@ -288,8 +329,18 @@ function ImageGallery({
                     className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
                     aria-label="Previous image"
                   >
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
                     </svg>
                   </button>
                   <button
@@ -297,8 +348,18 @@ function ImageGallery({
                     className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
                     aria-label="Next image"
                   >
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </button>
                 </>
@@ -338,8 +399,8 @@ export default function Home() {
             className="text-lg sm:text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto mb-10"
             variants={fadeInUp}
           >
-            I&apos;m Jamie — a product engineer who builds SaaS from scratch.
-            You bring the idea, I handle the rest. Weeks, not months.
+            I&apos;m Jamie, a product engineer who builds SaaS from scratch. You
+            bring the idea, I handle the rest. Weeks, not months.
           </motion.p>
           <motion.div variants={fadeInUp}>
             <a
@@ -372,7 +433,9 @@ export default function Home() {
                   {stat.value}
                   <span className="text-neutral-500">{stat.unit}</span>
                 </div>
-                <div className="text-sm text-neutral-500 mt-1">{stat.label}</div>
+                <div className="text-sm text-neutral-500 mt-1">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -400,9 +463,8 @@ export default function Home() {
             className="text-lg sm:text-xl text-neutral-400 leading-relaxed"
             variants={fadeInUp}
           >
-            Agencies take months and miss the point. Freelancers need
-            hand-holding. You need someone who can take an idea and ship a
-            product — architecture, design, deployment, done.
+            You&apos;ve got the idea. You need someone to build it. Someone who
+            gets the vision, makes decisions, and ships. That&apos;s what I do.
           </motion.p>
         </motion.div>
       </section>
@@ -430,14 +492,97 @@ export default function Home() {
           >
             I work with founders who have a clear idea but no technical
             co-founder. You get a working product, not a prototype. Auth,
-            payments, deployment — handled. No scope creep. No endless discovery.
-            Just a product you can launch.
+            payments, deployment, handled. No scope creep. No endless discovery.
+            Simply a product you can launch.
           </motion.p>
         </motion.div>
       </section>
 
-      {/* Specialization Section */}
+      {/* Responsibilities Split Section */}
       <section className="py-24 md:py-32 px-6">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+            variants={fadeInUp}
+          >
+            You focus on the vision.
+            <br />
+            <span className="text-neutral-500">I handle the rest.</span>
+          </motion.h2>
+          <motion.div
+            className="grid md:grid-cols-2 gap-0 rounded-xl overflow-hidden border border-white/10"
+            variants={fadeInUp}
+          >
+            {/* Your Side */}
+            <div className="bg-white/5 p-8">
+              <h3 className="text-lg font-semibold text-neutral-300 mb-6 uppercase tracking-wider">
+                You bring
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "The idea and vision",
+                  "Target users and market",
+                  "Feature priorities",
+                  "Feedback during builds",
+                  "Domain expertise",
+                ].map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-neutral-400"
+                  >
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-neutral-500 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Divider */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
+            {/* My Side */}
+            <div className="bg-neutral-900 p-8 border-t md:border-t-0 md:border-l border-white/10">
+              <h3 className="text-lg font-semibold text-white mb-6 uppercase tracking-wider">
+                I deliver
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Architecture and tech decisions",
+                  "Design and UI implementation",
+                  "Development and testing",
+                  "Deployment and hosting",
+                  "A URL you can share",
+                ].map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-3 text-neutral-300"
+                  >
+                    <svg
+                      className="mt-1 w-4 h-4 text-green-500 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Specialization Section */}
+      <section className="py-24 md:py-32 px-6 bg-[#050505]">
         <motion.div
           className="max-w-3xl mx-auto"
           initial="hidden"
@@ -457,13 +602,10 @@ export default function Home() {
           >
             Three of my products have one thing in common: they let users create
             something. Flashcard builders. Portfolio creators. Skill tree
-            systems. If your SaaS involves users building, designing, or creating
-            content, I&apos;ve solved these problems before.
+            systems. If your SaaS involves users building, designing, or
+            creating content, I&apos;ve solved these problems before.
           </motion.p>
-          <motion.div
-            className="flex flex-wrap gap-3"
-            variants={fadeInUp}
-          >
+          <motion.div className="flex flex-wrap gap-3" variants={fadeInUp}>
             {[
               "Complex state management",
               "Real-time editing",
@@ -563,7 +705,7 @@ export default function Home() {
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all hover:scale-105"
                       style={{
                         backgroundColor: product.accent,
-                        color: product.accent === "#f59e0b" ? "#000" : "#fff"
+                        color: product.accent === "#f59e0b" ? "#000" : "#fff",
                       }}
                     >
                       <span>Visit {product.name}</span>
@@ -582,9 +724,7 @@ export default function Home() {
                       </svg>
                     </a>
                   ) : (
-                    <span
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium bg-neutral-800 text-neutral-400"
-                    >
+                    <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium bg-neutral-800 text-neutral-400">
                       Exited
                     </span>
                   )}
@@ -711,9 +851,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-neutral-500 text-sm">
-            Jamie Wells
-          </span>
+          <span className="text-neutral-500 text-sm">Jamie Wells</span>
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <a
               href="https://github.com/jamiewells1"
