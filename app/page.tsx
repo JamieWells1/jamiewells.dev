@@ -21,7 +21,7 @@ const staggerContainer = {
 // Proof stats for the strip
 const proofStats = [
   { value: "18", unit: "hours", label: "to ship SkillDen" },
-  { value: "800+", unit: "", label: "users on ProofBase" },
+  { value: "1000+", unit: "", label: "users on ProofBase" },
   { value: "3", unit: "", label: "shipped products" },
   { value: "Real", unit: "", label: "traction" },
 ];
@@ -54,7 +54,7 @@ const products = [
   },
   {
     name: "ProofBase",
-    description: "Portfolio builder for degree apprentices. 800+ users. Monetized.",
+    description: "Portfolio builder for degree apprentices. 1000+ users. Monetized.",
     url: "https://proofbase.app",
     images: [
       "/proofbase/proofbase-tracker.png",
@@ -701,7 +701,7 @@ export default function Home() {
           </motion.p>
           <motion.div variants={fadeInUp}>
             <a
-              href="mailto:hello@jamiewells.dev"
+              href="mailto:jamie@jamiewells.dev"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium bg-white text-black rounded-full hover:bg-neutral-200 transition-colors"
             >
               Get in touch
@@ -718,7 +718,7 @@ export default function Home() {
           </span>
           <div className="flex items-center gap-6 text-sm text-neutral-500">
             <a
-              href="https://github.com/jamiewells"
+              href="https://github.com/jamiewells1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
@@ -726,7 +726,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/jamiewells"
+              href="https://linkedin.com/in/jamiewells31"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
